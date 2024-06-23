@@ -28,3 +28,20 @@ It is becuase of the annotations given in voxel coordinates not world coordinate
 After preprocessing Model Training Notebook should be used to train the model. After the traingin and creation of the model. The model can be used with the Web UI. 
 In the Web UI code "app.py" change the path for the model with the trained model. Then run the app.py. In the web UI the preprocessing step is applied automatically. 
 It receives a zip file containing mhd and raw file.
+
+## Dependencies (Python Libraries)
+
+* numpy
+* scipy
+* skimage
+* SimpleITK
+* pandas
+* glob
+* os
+* matplotlib
+* time
+* ast
+* zipfile
+* flask
+* torch
+* itertools
