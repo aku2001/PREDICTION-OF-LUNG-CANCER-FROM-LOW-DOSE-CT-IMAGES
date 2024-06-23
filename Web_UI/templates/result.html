@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Image Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>3D Image Viewer</h1>
+
+    <div class="selector">
+        <label for="k-select">Choose k:</label>
+        <select id="k-select">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+    </div>
+
+    <div class="slider-container">
+        <input type="range" min="0" max="127" value="0" class="slider" id="slider">
+        <span id="slider-value">0</span>
+    </div>
+
+    <div id="images">
+        {% for key in keys %}
+        <div class="image-section" id="img_container-{{ key[0] }}-{{ key[1] }}">
+            <div class="image-container" >
+                <img id="img-{{ key[0] }}-{{ key[1] }}" src="" alt="Image">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Processed Images</title>
+</head>
+<body>
+    <h1>Processed Images</h1>
+    {% for image in images %}
+        <div>
+            <img src="{{ url_for('send_image', filename=image) }}" alt="{{ image }}" style="max-width: 300px; max-height: 300px;">
+        </div>
+    {% endfor %}
+</body>
+</html>

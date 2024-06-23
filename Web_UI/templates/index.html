@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Nodule Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Lung Nodule Detection</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="file-input">
+                <input type="file" name="file" id="file"  onchange="displayFileName(this)">
+                <label for="file">Choose a ZIP file</label>
+            </div>
+            <input type="submit" value="Upload" class="btn">
+        </form>
+        <div id="file-name">
+        </div>
+        
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+                
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+
+    <style>
+        #file-name{
+            margin-top: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+    <script>
+        function displayFileName(input) {
+            const fileNameContainer = document.getElementById('file-name');
+            const fileName = input.files[0].name;
+            fileNameContainer.textContent = `Chosen file: ${fileName}`;
+        }
+
+
+    </script>
+
+  
+
+</body>
+</html>
